@@ -4,8 +4,8 @@ $(document).ready(function() {
 // target score adn display
 // on each click display the current score
 
-// create a target number
-let targetNum = 50;
+// changed this create a target number create a target random number 50 and 78
+let targetNum = Math.floor(Math.random() * 28) + 50;
 
 // create the js to push the random number generator number to the num-to-match ID
 $('#num-to-match').text(targetNum);
