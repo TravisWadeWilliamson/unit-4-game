@@ -7,9 +7,10 @@ $(document).ready(function () {
     // changed this create a target number create a target random number 50 and 78
     let targetNum = Math.floor(Math.random() * 29) + 50;
 
-    // create a random number generator for each crystal 
-    let crystalRed = Math.floor(Math.random() * 3) + 1;
-    console.log(crystalRed)
+    // create an array of the different crystals 
+    let crystalColors = [{
+        name: 'red',
+        
 
     // create the js to push the random number generator number to the num-to-match ID
     $('#num-to-match').text(targetNum);
