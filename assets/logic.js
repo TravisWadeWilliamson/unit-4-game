@@ -10,8 +10,40 @@ $(document).ready(function () {
     // create an array of the different crystals 
     let crystalColors = [{
         name: 'red',
-        
-
+        image: 'assets/images/theta-red.png',
+        value: 0
+    },
+    {
+        name: 'gold',
+        image: 'assests/images/theta-gold.png',
+        value: 0
+    },
+    {
+        name: 'yellow',
+        image: 'assets/images/theta-yellow.png',
+        value: 0
+    },
+    {
+        name: 'green',
+        image: 'assets/images/theta-green.png',
+        value: 0
+    }, 
+    {
+        name: 'blue',
+        image: 'assets/images/theta-blue.png',
+        value: 0
+    }, 
+    {
+        name: 'pink',
+        image: 'assets/images/theta-pink.png',
+        value: 0
+    },
+    {
+        name: 'purple',
+        image: 'assets/images/theta-purple.png',
+        value: 0
+    } 
+    ]
     // create the js to push the random number generator number to the num-to-match ID
     $('#num-to-match').text(targetNum);
 
