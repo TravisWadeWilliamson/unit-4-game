@@ -15,7 +15,7 @@ $(document).ready(function () {
     },
     {
         name: 'gold',
-        image: 'assests/images/theta-gold.png',
+        image: 'assets/images/theta-gold.png',
         value: 0
     },
     {
@@ -44,6 +44,15 @@ $(document).ready(function () {
         value: 0
     } 
     ]
+    
+    const usedNums = [];
+// higher order function doesn't target a specific index
+    crystalColors.forEach(color => {
+        var randomCrystalNum = Math.ceil(Math.random() * 15);
+        console.log(randomCrystalNum);
+    })
+    // assign a random number to each crystal
+
     // create the js to push the random number generator number to the num-to-match ID
     $('#num-to-match').text(targetNum);
 
