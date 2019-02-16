@@ -34,6 +34,7 @@ $(document).ready(function () {
         score = 0;
         // create the js to push the random number generator number to the num-to-match ID
         $('#num-to-match').text(targetNum);
+        document.getElementById('num-to-match').textContent = targetNum;
         // Generate and assign a random number to each crystal
         for (let color in crystalVariety) {
             crystalVariety[color] = Math.ceil(Math.random() * 15);
@@ -46,21 +47,18 @@ $(document).ready(function () {
     // create the logic to accrue the random number to the score when clicking on a crystal.
     $('.crystal-img').on('click', function () {
         const currId = $(this).attr('id');
-        console.log(this);
-        crystalVariety[currId];
         console.log(currId, crystalVariety[currId]);
 
         score += crystalVariety[currId];
         console.log(score);
 
-
-    //if the score = the targetNum then we increase wins by one
-    if (score === targetNum) {
-        console.log('you win');
-    } else if (score > targetNum) {
-        console.log('you lose');
-    };
-    //if the score > the targetNun then we increase the losses by one
+        //if the score = the targetNum then we increase wins by one
+        if (score === targetNum) {
+            console.log('you win');
+        } else if (score > targetNum) {
+            console.log('you lose');
+        };
+        //if the score > the targetNun then we increase the losses by one
     
     })
 
