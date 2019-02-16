@@ -1,7 +1,10 @@
 body {
     box-sizing: border-box;
 }
-
+.crstal-img {
+    display: flex;
+    justify-content: space-around;
+}
 img {
     height: 70px;
     border-radius: 10px;
