@@ -25,16 +25,19 @@ $(document).ready(function () {
         pink: 0,
         purple: 0
     }
-
-    // changed this to create a target random number between 50 and 99
+//MICHAL'S HELP!!!
+    // Create a start game function
     function start() {
-        // set targetNum to random number
+
+        // set targetNum to random number between 50 and 99
         targetNum = Math.floor(Math.random() * 50) + 50;
+        
         // set score to 0
         score = 0;
+
         // create the js to push the random number generator number to the num-to-match ID
         $('#num-to-match').text(targetNum);
-        document.getElementById('num-to-match').textContent = targetNum;
+        // document.getElementById('num-to-match').textContent = targetNum;
         // Generate and assign a random number to each crystal
         for (let color in crystalVariety) {
             crystalVariety[color] = Math.ceil(Math.random() * 15);
@@ -63,6 +66,8 @@ $(document).ready(function () {
     })
 
 
-
+//To accrue the points from each crystal to the score first we create the onclick
+    // Originally we had the crystal onclick function. But in jQuery, when an element is emptied and a new one created, the button will no longer be able to listen to any new element created on the DOM. There is something in jQuery called EVENT DELEGATION. In this case we need to use actually listen to the DOM via 'document' and then pass in the new or old element '.crystal' that should be listened to.
+    // $(".crystal").on('click', function () {
 
 });
