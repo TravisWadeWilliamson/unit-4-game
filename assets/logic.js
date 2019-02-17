@@ -6,6 +6,8 @@
 
 //Wish list: Timer, animation on crystal click
 
+// A few problems: I could never get my gifs to move when hovered over, I lost the right side boarder.
+
 
 $(document).ready(function () {
 
@@ -37,15 +39,15 @@ $(document).ready(function () {
 
         // Sets score to zero 
         score = 0;
-        $('#score').html("<h2>Score: " + score + "</h2>");
+        $('#score').html("<h2>Your Score: " + score + "</h2>");
 
         // Increments wins
         wins;
-        $('#wins').html("<h4>You have collected " + wins + (wins === 1 ? ' diamond' : ' diamonds') + "</h4>");
+        $('#wins').html("<h2>You have collected " + wins + (wins === 1 ? ' diamond' : ' diamonds') + "</h2>");
 
         // Increments losses
         losses;
-        $('#losses').html("<h4>You have lost " + losses + (losses === 1 ? ' diamond' : ' diamonds') + "</h4>");
+        $('#losses').html("<h2>You have lost " + losses + (losses === 1 ? ' diamond' : ' diamonds') + "</h2>");
 
         // Creates a random number for each crystal between 1 and 15
         for (let i = 0; i < 4; i++) {
@@ -62,12 +64,14 @@ $(document).ready(function () {
             //Add gifs to page
             crystal.css({
                 "background-image": "url('" + images[i] + "')",
-                "bacground-size": "cover"
+                "background-size": "cover",
+                
             });
             // Tried adding style the crystals div via jQuery
-            $('.crystals').css('border', '3px solid turquoise');
-            $('.crystals').css('border-radius', '5px');
-
+            $('.crystals, .jumbotron').css('border', '4px solid turquoise');
+            $('.crystals, .jumbotron').css('border-radius', '5px');
+            
+            
             // Tried adding animation to the crystal divs via jQuery but it didn't work....
             // $('crystal').animate({bottom: '200px', top: '200px', }, 500);
 
