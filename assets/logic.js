@@ -39,8 +39,7 @@ $(document).ready(function () {
         // Creates a random number for each crystal between 1 and 15
         for (let i = 0; i < 7; i++) {
             let individualCrystalNum = Math.ceil(Math.random() * 15);
-            console.log(individualCrystalNum);
-
+            
             // Creates a new div for each of the individual crystals to live in
             let crystal = $('<div>');
 
@@ -51,7 +50,6 @@ $(document).ready(function () {
             });
 
             // Puts the dynamically created crystal div INTO the parent crystals div
-            crystal.html(individualCrystalNum);
             $('.crystals').append(crystal);
 
         }
