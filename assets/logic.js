@@ -38,6 +38,7 @@ $(document).ready(function () {
         // create the js to push the random number generator number to the num-to-match ID
         $('#num-to-match').text(targetNum);
         // document.getElementById('num-to-match').textContent = targetNum;
+        
         // Generate and assign a random number to each crystal
         for (let color in crystalVariety) {
             crystalVariety[color] = Math.ceil(Math.random() * 15);
