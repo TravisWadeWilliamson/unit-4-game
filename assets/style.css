@@ -1,11 +1,14 @@
-body {
-    box-sizing: border-box;
-}
-.crstal-img {
+
+.crystals {
     display: flex;
     justify-content: space-around;
+    border: 1px solid orangered;
+    align-items: center;
 }
-img {
-    height: 70px;
-    border-radius: 10px;
+
+.crystal {
+    border: 1px solid purple;
+    height: 200px;
+    width: 200px;
 }
+

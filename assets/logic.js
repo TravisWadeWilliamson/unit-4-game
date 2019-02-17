@@ -4,71 +4,81 @@
 // When you click any crystal it should accumulate to total score
 // Matching the randomly generated number creates a win, going over that number creates a loss. Both wins and loss resets the random number to match and those of the individual crystals.
 
-//Wish list: Timer, animation on crystal click/ start button
+//Wish list: Timer, animation on crystal click
 
 
 $(document).ready(function () {
 
-    // set the variables for wins, losses and my score. We can do this as one variable cos a win will register as 1 win and a loss will register as 1 loss
-    let targetNum;
-    let wins = 0;
-    let losses = 0;
-    let score;
-    // create an array of the different crystals 
+    var numberToMatch;
+    var losses = 0;
+    var wins = 0;
+    var score =0;
 
-    const crystalVariety = {
-        red: 0,
-        gold: 0,
-        yellow: 0,
-        green: 0,
-        blue: 0,
-        pink: 0,
-        purple: 0
-    }
-//MICHAL'S HELP!!!
-    // Create a start game function
-    function start() {
-
-        // set targetNum to random number between 50 and 99
-        targetNum = Math.floor(Math.random() * 50) + 50;
+    //Create the start game function
+    let restartAndStart = function () {
+       
+        //Clear the individual crystals out for next round
+        $(".crystals").empty();
+       
+        // Generates Random number between 37 and 101 for play to match
+        numberToMatch = Math.ceil(Math.random() * 64) + 37;
         
-        // set score to 0
+        // Pushes the random number to match to the HTML
+        $('#rnd-num-to-match').html("<h2>Number to Match: " + numberToMatch + "</h2>");
+
+        // Sets score wins losses to 
         score = 0;
+        $('#score').html("<h2>Score: " + score + "</h2>");
 
-        // create the js to push the random number generator number to the num-to-match ID
-        $('#num-to-match').text(targetNum);
-        // document.getElementById('num-to-match').textContent = targetNum;
-        
-        // Generate and assign a random number to each crystal
-        for (let color in crystalVariety) {
-            crystalVariety[color] = Math.ceil(Math.random() * 15);
+        wins;
+        $('#wins').html("<h2>" + wins + (wins === 1 ? ' Win' : ' Wins') + "</h2>");
+
+        losses;
+        $('#losses').html("<h2>" + losses + (losses === 1 ? ' Loss' : ' Losses') + "</h2>");
+
+        // Creates a random number for each crystal between 1 and 15
+        for (let i = 0; i < 7; i++) {
+            let individualCrystalNum = Math.ceil(Math.random() * 15);
+            console.log(individualCrystalNum);
+
+            // Creates a new div for each of the individual crystals to live in
+            let crystal = $('<div>');
+
+            // Assigns some attributes to the individual crystals       
+            crystal.attr({
+                "class": 'crystal',
+                "data_rndNumCrys": individualCrystalNum
+            });
+
+            // Puts the dynamically created crystal div INTO the parent crystals div
+            crystal.html(individualCrystalNum);
+            $('.crystals').append(crystal);
+
         }
-    };
+    }
+    // Calls the startGameReset function
+    restartAndStart();
 
-    //when the win or loss is going to reset the target number and score should be reset 0
-    start();
-        
-    // create the logic to accrue the random number to the score when clicking on a crystal.
-    $('.crystal-img').on('click', function () {
-        const currId = $(this).attr('id');
-        console.log(currId, crystalVariety[currId]);
+    //To accrue the points from each crystal to the score first we create the onclick
+    $(document).on('click', ".crystal", function () {
 
-        score += crystalVariety[currId];
-        console.log(score);
 
-        //if the score = the targetNum then we increase wins by one
-        if (score === targetNum) {
-            console.log('you win');
-        } else if (score > targetNum) {
-            console.log('you lose');
-        };
-        //if the score > the targetNun then we increase the losses by one
-    
+        //Now we store the value we pull above into a variable, but we have to turn it into a number via parseInt
+        var individualCrystalNum = parseInt($(this).attr('data_rndNumCrys'));
+
+        score += individualCrystalNum;
+        $('#score').html("<h2>Score: " + score + "</h2>");
+
+        //if the score is equal to the number to match then push that to the html and increment the wins
+        if (score === numberToMatch) {
+            wins++;
+            restartAndStart();
+            
+            // if the score is greater than the number to match push that to the html and increment the loss
+        } else if (score > numberToMatch) {
+            losses++;
+            restartAndStart();
+
+        }
     })
-
-
-//To accrue the points from each crystal to the score first we create the onclick
-    // Originally we had the crystal onclick function. But in jQuery, when an element is emptied and a new one created, the button will no longer be able to listen to any new element created on the DOM. There is something in jQuery called EVENT DELEGATION. In this case we need to use actually listen to the DOM via 'document' and then pass in the new or old element '.crystal' that should be listened to.
-    // $(".crystal").on('click', function () {
-
 });
