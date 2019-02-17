@@ -12,17 +12,25 @@ $(document).ready(function () {
     var numberToMatch;
     var losses = 0;
     var wins = 0;
-    var score =0;
+    var score = 0;
 
     //Create the start game function
     let restartAndStart = function () {
-       
+
         //Clear the individual crystals out for next round
         $(".crystals").empty();
-       
+
+        // Create an array for the images,
+        var images = [
+            'assets/images/green-diamond.gif',
+            'assets/images/pink-diamond.gif',
+            'assets/images/yellow-diamond.gif',
+            'assets/images/rainbow-diamond.gif'
+        ];
+
         // Generates Random number between 37 and 101 for play to match
         numberToMatch = Math.ceil(Math.random() * 64) + 37;
-        
+
         // Pushes the random number to match to the HTML
         $('#rnd-num-to-match').html("<h2>Number to Match: " + numberToMatch + "</h2>");
 
@@ -37,9 +45,9 @@ $(document).ready(function () {
         $('#losses').html("<h2>" + losses + (losses === 1 ? ' Loss' : ' Losses') + "</h2>");
 
         // Creates a random number for each crystal between 1 and 15
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 4; i++) {
             let individualCrystalNum = Math.ceil(Math.random() * 15);
-            
+
             // Creates a new div for each of the individual crystals to live in
             let crystal = $('<div>');
 
@@ -47,6 +55,11 @@ $(document).ready(function () {
             crystal.attr({
                 "class": 'crystal',
                 "data_rndNumCrys": individualCrystalNum
+            });
+            //Add gifs to page
+            crystal.css({
+                "background-image":"url('" + images[i] + "')",  
+                "bacground-size": "cover"             
             });
 
             // Puts the dynamically created crystal div INTO the parent crystals div
@@ -71,7 +84,7 @@ $(document).ready(function () {
         if (score === numberToMatch) {
             wins++;
             restartAndStart();
-            
+
             // if the score is greater than the number to match push that to the html and increment the loss
         } else if (score > numberToMatch) {
             losses++;
