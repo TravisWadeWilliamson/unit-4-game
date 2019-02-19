@@ -13,56 +13,62 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <p class="display-4">Diamond Digger!</p>
-        <p class="lead">Click the diamonds to collect points. Match the "Number to Match" and win. Go over the number to
-            match? Sorry, Diamond Digger, lose your diamonds.</p>
-        <hr class="my-4">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Start Digging!</a>
-    </div>
-    <div id="outer-row" class="row">
-        <div class="col-md-6">
-            <div class="inside-row">
-                <div class="col-md-8">
-                    <p>Number to Match:</p>
+    <container id="con1">
+        <div class="jumbotron">
+            <div id="inner-jumbo">
+                <p class="display-4">Diamond Digger!</p>
+                <p class="lead">Click the diamonds to collect points. Match the "Number to Match" and win. Go over the
+                    number to
+                    match? Sorry, Diamond Digger, lose your diamonds.</p>
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Start Digging!</a>
+            </div>
+        </div>
+    </container>
+    <container id="con2">
+        <div id="outer-row" class="row">
+            <div class="col-md-6">
+                <div class="inside-row">
+                    <div class="col-md-8">
+                        <p>Number to Match:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p id="rnd-num-to-match"></p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <p id="rnd-num-to-match"></p>
+                <div class="inside-row">
+                    <div class="col-md-8">
+                        <p>Your Score:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p id="score"></p>
+                    </div>
                 </div>
             </div>
-            <div class="inside-row">
-                <div class="col-md-8">
-                    <p>Your Score:</p>
+            <div class="col-md-6">
+                <div class="inside-row">
+                    <div class="col-md-8">
+                        <p>You have collected:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="right" id="wins"> </p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <p id="score"></p>
+                <div class="inside-row">
+                    <div class="col-md-8">
+                        <p>Your have lost:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="right" id="losses"></p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="inside-row">
-                <div class="col-md-8">
-                    <p>You have collected:</p>
-                </div>
-                <div class="col-md-4">
-                    <p class="right" id="wins"> </p>
-                </div>
-            </div>
-            <div class="inside-row">
-                <div class="col-md-8">
-                    <p>Your have lost:</p>
-                </div>
-                <div class="col-md-4">
-                    <p class="right" id="losses"></p>
-                </div>
-            </div>
+    </container>
+    <container id="con3">
+        <div class="crystals">
         </div>
-    </div>
-
-
-    <div class="crystals">
-
-    </div>
+    </container>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

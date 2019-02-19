@@ -16,18 +16,23 @@ $(document).ready(function () {
     var wins = 0;
     var score = 0;
     var netDiamonds = 0;
+    var click = new Audio();
+    
+      
+    //Creates the function to show on click
+    
 
     //Create the start game function
     let restartAndStart = function () {
-
+        // $('container').hide();
         //Clear the individual crystals out for next round
         $(".crystals").empty();
 
         // Create an array for the gif images,
         var images = [
-            'assets/images/green-diamond.gif',
             'assets/images/pink-diamond.gif',
             'assets/images/yellow-diamond.gif',
+            'assets/images/green-diamond.gif',
             'assets/images/rainbow-diamond.gif'
         ];
 
@@ -68,8 +73,9 @@ $(document).ready(function () {
                 
             });
             // Tried adding style the crystals div via jQuery
-            // $('.crystals, .jumbotron').css('border', '4px solid turquoise');
-            // $('.crystals, .jumbotron').css('border-radius', '5px');
+            $('#inner-jumbo').css('border', '4px solid turquoise');
+            $('#inner-jumbo').css('border-radius', '5px');
+            $('#outer-row').css('padding', '10px 25px');
             
             
             // Tried adding animation to the crystal divs via jQuery but it didn't work....

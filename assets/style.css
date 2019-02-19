@@ -16,22 +16,26 @@
     text-align: center;
     font-family: 'VT323', monospace;
     background-color: black;
+    padding: 10px 10px;
 }
 
-.disply {
+.display {
   font-size: 3.5vw;  
 }
 .lead {
     font-size: 2.5vw;
+    margin: 0 auto;
+    padding: 5px;
 }
 
+ .btn {
+    margin-bottom: 25px;
+}
 
 #outer-row {
-    
     justify-content: space-around;
     background-color: black;
     margin-bottom: 32px;
-    padding: 32px;
 }
 
 .col-md-6 {
@@ -46,20 +50,20 @@ padding: 20px 0 0 0;
 
 
 .inside-row {
-    
     display: flex;
     align-self: auto;
     height: 50%;
 }
 .crystals {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: black;
     height: 100px;
-    
+   
 }
+
 
 .crystal {
     height: 51px;
@@ -68,10 +72,12 @@ padding: 20px 0 0 0;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
-    transition: width 1000ms, height 1000ms, transform 1000ms;
+    transition: transform 1000ms;
     
 }
 
 .crystal:hover {
-    transform: rotate(360deg);
+    transform: rotate(720deg);
+    height: 102px;
+    width: 150px;
 }
