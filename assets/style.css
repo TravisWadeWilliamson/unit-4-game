@@ -1,11 +1,10 @@
-display: flex-box
 
 .jumbotron {
+    display: flex;
     align-content: center;
     text-align: center;
     font-family: 'VT323', monospace;
     background-color: black;
-    
 }
 
 
@@ -42,6 +41,7 @@ p {
     align-items: center;
     background-color: black;
     height: 100px;
+    
 }
 
 .crystal {
@@ -51,5 +51,10 @@ p {
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+    transition: width 1000ms, height 1000ms, transform 1000ms;
+    
 }
 
+.crystal:hover {
+    transform: rotate(360deg);
+}
