@@ -35,19 +35,19 @@ $(document).ready(function () {
         numberToMatch = Math.ceil(Math.random() * 64) + 37;
 
         // Pushes the random number to match to the HTML
-        $('#rnd-num-to-match').html("<h2>Number to Match: " + numberToMatch + "</h2>");
+        $('#rnd-num-to-match').text( numberToMatch);
 
         // Sets score to zero 
         score = 0;
-        $('#score').html("<h2>Your Score: " + score + "</h2>");
+        $('#score').text(score);
 
         // Increments wins
         wins;
-        $('#wins').html("<h2>You have collected " + wins + (wins === 1 ? ' diamond' : ' diamonds') + "</h2>");
+        $('#wins').text(wins + (wins === 1 ? ' diamond' : ' diamonds'));
 
         // Increments losses
         losses;
-        $('#losses').html("<h2>You have lost " + losses + (losses === 1 ? ' diamond' : ' diamonds') + "</h2>");
+        $('#losses').text(losses + (losses === 1 ? ' diamond' : ' diamonds'));
 
         // Creates a random number for each crystal between 1 and 15
         for (let i = 0; i < 4; i++) {
@@ -68,8 +68,8 @@ $(document).ready(function () {
                 
             });
             // Tried adding style the crystals div via jQuery
-            $('.crystals, .jumbotron').css('border', '4px solid turquoise');
-            $('.crystals, .jumbotron').css('border-radius', '5px');
+            // $('.crystals, .jumbotron').css('border', '4px solid turquoise');
+            // $('.crystals, .jumbotron').css('border-radius', '5px');
             
             
             // Tried adding animation to the crystal divs via jQuery but it didn't work....
@@ -91,7 +91,7 @@ $(document).ready(function () {
         var individualCrystalNum = parseInt($(this).attr('data_rndNumCrys'));
 
         score += individualCrystalNum;
-        $('#score').html("<h2>Score: " + score + "</h2>");
+        $('#score').html("<p>Score: " + score + "</p>");
 
         //if the score is equal to the number to match then push that to the html and increment the wins
         if (score === numberToMatch) {
