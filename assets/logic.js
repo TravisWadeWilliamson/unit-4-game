@@ -17,14 +17,19 @@ $(document).ready(function () {
     var score = 0;
     var netDiamonds = 0;
     var click = new Audio();
+
+
+    // Hides body of game at open
+    $('#con2').hide();
     
-      
-    //Creates the function to show on click
-    
+    // On button click shows the body of the game and hides the start button
+    $('.btn').on('click', function () {
+        $('#con2').show();
+        $('.btn').hide();
+    })
 
     //Create the start game function
     let restartAndStart = function () {
-        // $('container').hide();
         //Clear the individual crystals out for next round
         $(".crystals").empty();
 
@@ -40,7 +45,7 @@ $(document).ready(function () {
         numberToMatch = Math.ceil(Math.random() * 64) + 37;
 
         // Pushes the random number to match to the HTML
-        $('#rnd-num-to-match').text( numberToMatch);
+        $('#rnd-num-to-match').text(numberToMatch);
 
         // Sets score to zero 
         score = 0;
@@ -70,14 +75,14 @@ $(document).ready(function () {
             crystal.css({
                 "background-image": "url('" + images[i] + "')",
                 "background-size": "cover",
-                
+
             });
             // Tried adding style the crystals div via jQuery
             $('#inner-jumbo').css('border', '4px solid turquoise');
             $('#inner-jumbo').css('border-radius', '5px');
             $('#outer-row').css('padding', '10px 25px');
-            
-            
+
+
             // Tried adding animation to the crystal divs via jQuery but it didn't work....
             // $('crystal').animate({bottom: '200px', top: '200px', }, 500);
 
